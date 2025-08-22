@@ -10,7 +10,19 @@ class Textstyles {
     return TextStyle(
       fontSize: fontSize ?? 24,
       fontWeight: fontWeight ?? FontWeight.w600,
-      color: color ?? AppColors.blackColor,
+      color: color ?? AppColors.primaryColor,
+    );
+  }
+
+  static TextStyle getTitle({
+    Color? color,
+    FontWeight? fontWeight,
+    double? fontSize,
+  }) {
+    return TextStyle(
+      fontSize: fontSize ?? 20,
+      fontWeight: fontWeight ?? FontWeight.w500,
+      color: color ?? AppColors.primaryColor,
     );
   }
 
