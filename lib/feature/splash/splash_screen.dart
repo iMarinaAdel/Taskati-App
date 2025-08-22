@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:lottie/lottie.dart';
 import 'package:taskati/constants/app_assets.dart';
+import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/text_style.dart';
+import 'package:taskati/feature/uplaod/pages/uplaod_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,8 +17,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
-      //AppNavigation.pushRecplementTo(context, newPage)
+    Future.delayed(const Duration(seconds: 4), () {
+      AppNavigation.pushRecplementTo(context, UplaodScreen());
     });
     super.initState();
   }
