@@ -12,7 +12,7 @@ class AppNavigation {
     );
   }
 
-  static void pushRemoveUntil(BuildContext context, Widget newPage) {
+  static void pushAndRemoveUntil(BuildContext context, Widget newPage) {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => newPage),

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:taskati/core/utils/AppColors.dart';
-import 'package:taskati/feature/home/pages/home_page.dart';
+import 'package:taskati/feature/home/pages/home_screen.dart';
+import 'package:taskati/feature/profile/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
-  List<Widget> screens = [HomePage(), Center(child: Text("Profile Screen"))];
+  List<Widget> screens = [HomeScreen(), ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -28,39 +30,46 @@ class _MainScreenState extends State<MainScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
 
-      bottomNavigationBar: BottomAppBar(
-        height: 50,
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8,
-        color: AppColors.primaryLightColor,
-        elevation: 10,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(
-              icon: Icon(
-                Icons.home,
-                color: currentIndex == 0 ? AppColors.primaryColor : Colors.grey,
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadiusGeometry.circular(20),
+        child: BottomAppBar(
+          height: 50,
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 8,
+          color: AppColors.primaryLightColor,
+          elevation: 10,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.home,
+                  color: currentIndex == 0
+                      ? AppColors.primaryColor
+                      : Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 0;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  currentIndex = 0;
-                });
-              },
-            ),
-            const SizedBox(width: 40),
-            IconButton(
-              icon: Icon(
-                Icons.person,
-                color: currentIndex == 1 ? AppColors.primaryColor : Colors.grey,
+              const SizedBox(width: 40),
+              IconButton(
+                icon: Icon(
+                  Icons.person,
+                  color: currentIndex == 1
+                      ? AppColors.primaryColor
+                      : Colors.grey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    currentIndex = 1;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  currentIndex = screens.length;
-                });
-              },
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

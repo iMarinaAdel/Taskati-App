@@ -6,22 +6,18 @@ import 'package:taskati/feature/main_screen.dart/main_screen.dart';
 
 class DoneButton extends StatelessWidget {
   final String? path;
-  final TextEditingController nameController;
+  final TextEditingController? nameController;
 
-  const DoneButton({
-    super.key,
-    required this.path,
-    required this.nameController,
-  });
+  const DoneButton({super.key, required this.path, this.nameController});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        if (path != null && nameController.text.isNotEmpty) {
-          AppNavigation.pushTo(context, MainScreen());
-        } else if (path == null && nameController.text.isNotEmpty) {
-          AppNavigation.pushTo(context, MainScreen());
+        if (path != null && nameController?.text.isNotEmpty == true) {
+          AppNavigation.pushAndRemoveUntil(context, MainScreen());
+        } else if (path == null && nameController?.text.isNotEmpty == true) {
+          AppNavigation.pushAndRemoveUntil(context, MainScreen());
         } else {
           showErrorMessage(context, "Please Enter Your Name");
         }
@@ -30,4 +26,3 @@ class DoneButton extends StatelessWidget {
     );
   }
 }
-
