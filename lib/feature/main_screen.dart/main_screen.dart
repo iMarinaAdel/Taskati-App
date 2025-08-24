@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/utils/AppColors.dart';
+import 'package:taskati/feature/add_task/pages/add_task_screen.dart';
 import 'package:taskati/feature/home/pages/home_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -23,7 +25,9 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 8,
         shape: const CircleBorder(),
         backgroundColor: AppColors.primaryColor,
-        onPressed: () {},
+        onPressed: () {
+          AppNavigation.pushTo(context, AddTaskScreen());
+        },
         child: Icon(Icons.add, size: 32, color: AppColors.primaryLightColor),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -56,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
               onPressed: () {
                 setState(() {
-                  currentIndex = screens.length;
+                  currentIndex = 1;
                 });
               },
             ),

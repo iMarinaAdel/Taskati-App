@@ -5,7 +5,10 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     fontFamily: "Poppins",
     primaryColor: AppColors.primaryColor,
-    appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.redColor, width: 1),
@@ -24,6 +27,5 @@ class AppTheme {
         borderRadius: BorderRadius.circular(20),
       ),
     ),
-    
   );
 }
