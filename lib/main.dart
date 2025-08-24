@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:taskati/core/services/local_helper.dart';
 import 'package:taskati/core/utils/app_theme.dart';
 import 'package:taskati/feature/splash/splash_screen.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  await LocalHelper.init();
   runApp(const Taskati());
 }
 
@@ -18,4 +22,3 @@ class Taskati extends StatelessWidget {
     );
   }
 }
- 

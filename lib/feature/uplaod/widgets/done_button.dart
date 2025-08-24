@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/healper/showErrorMessage.dart';
+import 'package:taskati/core/services/local_helper.dart';
 import 'package:taskati/core/utils/text_style.dart';
 import 'package:taskati/feature/main_screen.dart/main_screen.dart';
 
@@ -19,9 +20,14 @@ class DoneButton extends StatelessWidget {
     return TextButton(
       onPressed: () {
         if (path != null && nameController.text.isNotEmpty) {
-          AppNavigation.pushTo(context, MainScreen());
+          LocalHelper.cacheData(LocalHelper.kIsUpload, true);
+          LocalHelper.cacheData(LocalHelper.kName, nameController.text);
+          LocalHelper.cacheData(LocalHelper.kImage, path);
+          AppNavigation.pushRecplementTo(context, MainScreen());
         } else if (path == null && nameController.text.isNotEmpty) {
-          AppNavigation.pushTo(context, MainScreen());
+          LocalHelper.cacheData(LocalHelper.kIsUpload, true);
+          LocalHelper.cacheData(LocalHelper.kName, nameController.text);
+          AppNavigation.pushRecplementTo(context, MainScreen());
         } else {
           showErrorMessage(context, "Please Enter Your Name");
         }
@@ -30,4 +36,3 @@ class DoneButton extends StatelessWidget {
     );
   }
 }
-
