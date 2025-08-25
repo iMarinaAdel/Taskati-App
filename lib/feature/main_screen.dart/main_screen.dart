@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/utils/AppColors.dart';
+import 'package:taskati/feature/add_task/pages/add_task_screen.dart';
 import 'package:taskati/feature/home/pages/home_screen.dart';
 import 'package:taskati/feature/profile/profile_screen.dart';
 
@@ -25,7 +27,9 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 8,
         shape: const CircleBorder(),
         backgroundColor: AppColors.primaryColor,
-        onPressed: () {},
+        onPressed: () {
+          AppNavigation.pushTo(context, AddTaskScreen());
+        },
         child: Icon(Icons.add, size: 32, color: AppColors.primaryLightColor),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

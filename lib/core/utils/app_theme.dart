@@ -3,9 +3,26 @@ import 'package:taskati/core/utils/AppColors.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: AppColors.primaryColor,
+      brightness: Brightness.light,
+    ),
+    datePickerTheme: DatePickerThemeData(
+      headerBackgroundColor: AppColors.primaryColor,
+      headerForegroundColor: Colors.white,
+      todayForegroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+    ),
+    timePickerTheme: TimePickerThemeData(
+      dialHandColor: AppColors.primaryColor,
+      entryModeIconColor: AppColors.primaryColor,
+    ),
     fontFamily: "Poppins",
     primaryColor: AppColors.primaryColor,
-    appBarTheme: AppBarTheme(backgroundColor: Colors.transparent),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
+    ),
     inputDecorationTheme: InputDecorationTheme(
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: AppColors.redColor, width: 1),
@@ -24,6 +41,5 @@ class AppTheme {
         borderRadius: BorderRadius.circular(20),
       ),
     ),
-    
   );
 }
