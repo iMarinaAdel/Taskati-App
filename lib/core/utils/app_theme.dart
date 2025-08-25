@@ -3,6 +3,20 @@ import 'package:taskati/core/utils/AppColors.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: AppColors.primaryColor,
+      brightness: Brightness.light,
+    ),
+    datePickerTheme: DatePickerThemeData(
+      headerBackgroundColor: AppColors.primaryColor,
+      headerForegroundColor: Colors.white,
+      todayForegroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
+    ),
+    timePickerTheme: TimePickerThemeData(
+      dialHandColor: AppColors.primaryColor,
+      entryModeIconColor: AppColors.primaryColor,
+    ),
     fontFamily: "Poppins",
     primaryColor: AppColors.primaryColor,
     appBarTheme: AppBarTheme(

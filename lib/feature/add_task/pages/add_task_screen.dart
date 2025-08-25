@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
+import 'package:intl/intl.dart';
 import 'package:taskati/core/utils/AppColors.dart';
-import 'package:taskati/core/utils/text_style.dart';
+import 'package:taskati/feature/add_task/widgets/custom_button.dart';
+import 'package:taskati/feature/add_task/widgets/select_colors.dart';
+import 'package:taskati/feature/add_task/widgets/text_feilds.dart';
+import 'package:taskati/feature/add_task/widgets/time_fielsd_row.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -11,19 +15,19 @@ class AddTaskScreen extends StatefulWidget {
 }
 
 class _AddTaskScreenState extends State<AddTaskScreen> {
-  final List<Color> taskColors = const [
-    AppColors.primaryColor,
-    AppColors.blueColor,
-    AppColors.yellowColor,
-    AppColors.pinkwColor,
-  ];
-
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
-  var dateController = TextEditingController();
-  var startTimeController = TextEditingController();
-  var endTimeController = TextEditingController();
+  var dateController = TextEditingController(
+    text: DateFormat("yyyy-MM-dd").format(DateTime.now()),
+  );
+  var startTimeController = TextEditingController(
+    text: DateFormat("hh-mm a").format(DateTime.now()),
+  );
+  var endTimeController = TextEditingController(
+    text: DateFormat("hh-mm a").format(DateTime.now()),
+  );
   int selectColor = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,110 +45,34 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           top: 50,
           bottom: 20,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Title",
-              style: Textstyles.getTitle(),
-              textAlign: TextAlign.start,
-            ),
-            Gap(6),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Enter Title"),
-              controller: titleController,
-            ),
-            Gap(15),
-            Text(
-              "Describtion",
-              style: Textstyles.getTitle(),
-              textAlign: TextAlign.start,
-            ),
-            Gap(6),
-            TextFormField(
-              decoration: InputDecoration(hintText: "Enter description ..."),
-              maxLines: 3,
-              controller: descriptionController,
-            ),
-            Gap(15),
-            Text(
-              "Date",
-              style: Textstyles.getTitle(),
-              textAlign: TextAlign.start,
-            ),
-            Gap(6),
-            TextFormField(
-              onTap: () {},
-              controller: dateController,
-              decoration: InputDecoration(
-                hintText: "Enter Date ...",
-                suffixIcon: Icon(
-                  Icons.calendar_month,
-                  color: AppColors.primaryColor,
-                ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextFeilds(
+                titleController: titleController,
+                descriptionController: descriptionController,
+                dateController: dateController,
               ),
-            ),
-            Gap(15),
-
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Start Date", textAlign: TextAlign.start),
-                      Gap(6),
-                      TextFormField(controller: startTimeController),
-                    ],
-                  ),
-                ),
-                Gap(12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("End Date", textAlign: TextAlign.start),
-                      Gap(6),
-                      TextFormField(controller: endTimeController),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            Gap(20),
-            Row(
-              spacing: 5,
-              children: List.generate(taskColors.length, (index) {
-                return GestureDetector(
-                  child: CircleAvatar(
-                    backgroundColor: taskColors[index],
-                    child: (selectColor == index)
-                        ? Icon(Icons.check, color: AppColors.whiteColor)
-                        : null,
-                  ),
-                  onTap: () {
-                    setState(() {
-                      selectColor = index;
-                    });
-                  },
-                );
-              }),
-            ),
-            Gap(30),
-            SizedBox(
-              height: 60,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  elevation: 10,
-                  shadowColor: AppColors.primaryLightColor,
-                  backgroundColor: AppColors.primaryLightColor,
-                ),
-                onPressed: () {},
-                child: Text("Add Task", style: Textstyles.getTitle()),
+              Gap(20),
+              TimeFielsdRow(
+                dateController: dateController,
+                startTimeController: startTimeController,
+                endTimeController: endTimeController,
               ),
-            ),
-          ],
+              Gap(20),
+              SelectColorsWidget(
+                selectedIndex: selectColor,
+                onColorSelected: (index) {
+                  setState(() {
+                    selectColor = index;
+                  });
+                },
+              ),
+              Gap(50),
+              CustomButton(),
+            ],
+          ),
         ),
       ),
     );
