@@ -33,12 +33,7 @@ class _UplaodScreenState extends State<UplaodScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          DoneButton(
-            path: path,
-            nameController: nameController,
-          ),
-        ],
+        actions: [DoneButton(path: path, nameController: nameController)],
       ),
       body: Center(
         child: Column(
