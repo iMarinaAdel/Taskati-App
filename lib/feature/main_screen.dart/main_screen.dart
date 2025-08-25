@@ -3,6 +3,7 @@ import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/feature/add_task/pages/add_task_screen.dart';
 import 'package:taskati/feature/home/pages/home_page.dart';
+import 'package:taskati/feature/profile/pages/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -14,7 +15,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int currentIndex = 0;
 
-  List<Widget> screens = [HomePage(), Center(child: Text("Profile Screen"))];
+  List<Widget> screens = [HomePage(), ProfileScreen()];
 
   @override
   Widget build(BuildContext context) {
