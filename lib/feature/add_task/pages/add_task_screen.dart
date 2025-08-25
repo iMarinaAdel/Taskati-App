@@ -17,6 +17,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     AppColors.yellowColor,
     AppColors.pinkwColor,
   ];
+
+  var titleController = TextEditingController();
+  var descriptionController = TextEditingController();
+  var dateController = TextEditingController();
+  var startTimeController = TextEditingController();
+  var endTimeController = TextEditingController();
   int selectColor = 0;
   @override
   Widget build(BuildContext context) {
@@ -44,7 +50,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
               textAlign: TextAlign.start,
             ),
             Gap(6),
-            TextFormField(decoration: InputDecoration(hintText: "Enter Title")),
+            TextFormField(
+              decoration: InputDecoration(hintText: "Enter Title"),
+              controller: titleController,
+            ),
             Gap(15),
             Text(
               "Describtion",
@@ -55,6 +64,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             TextFormField(
               decoration: InputDecoration(hintText: "Enter description ..."),
               maxLines: 3,
+              controller: descriptionController,
             ),
             Gap(15),
             Text(
@@ -64,7 +74,15 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
             ),
             Gap(6),
             TextFormField(
-              decoration: InputDecoration(hintText: "Enter Date ..."),
+              onTap: () {},
+              controller: dateController,
+              decoration: InputDecoration(
+                hintText: "Enter Date ...",
+                suffixIcon: Icon(
+                  Icons.calendar_month,
+                  color: AppColors.primaryColor,
+                ),
+              ),
             ),
             Gap(15),
 
@@ -76,7 +94,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     children: [
                       Text("Start Date", textAlign: TextAlign.start),
                       Gap(6),
-                      TextFormField(),
+                      TextFormField(controller: startTimeController),
                     ],
                   ),
                 ),
@@ -87,7 +105,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     children: [
                       Text("End Date", textAlign: TextAlign.start),
                       Gap(6),
-                      TextFormField(),
+                      TextFormField(controller: endTimeController),
                     ],
                   ),
                 ),
