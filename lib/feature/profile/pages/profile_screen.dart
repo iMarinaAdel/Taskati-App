@@ -52,6 +52,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              bool isDark = LocalHelper.getData(LocalHelper.kIsDark) ?? false;
+              LocalHelper.cacheData(LocalHelper.kIsDark, !isDark);
+              setState(() {});
+            },
+            icon: Icon(Icons.dark_mode, size: 40),
+          ),
+        ],
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20),

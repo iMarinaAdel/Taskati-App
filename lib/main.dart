@@ -15,14 +15,20 @@ class Taskati extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      themeAnimationCurve: Curves.fastOutSlowIn,
-      themeAnimationDuration: Duration(seconds: 2),
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.dartTheme,
-      themeMode: ThemeMode.light,
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return ValueListenableBuilder(
+      valueListenable: LocalHelper.userBox.listenable(),
+      builder: (BuildContext context, value, Widget? child) {
+        bool isDark = LocalHelper.getData(LocalHelper.kIsDark) ?? false;
+        return MaterialApp(
+          themeAnimationCurve: Curves.fastOutSlowIn,
+          themeAnimationDuration: Duration(seconds: 2),
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.dartTheme,
+          themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+        );
+      },
     );
   }
 }
