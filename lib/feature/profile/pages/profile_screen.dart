@@ -72,12 +72,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ? TextField(
                             controller: nameController,
                             autofocus: true,
-                            style: Textstyles.getTitle(),
+                            style: TextStyles.getTitle(),
                             onSubmitted: (_) => saveName(),
                           )
                         : Text(
                             LocalHelper.getData(LocalHelper.kName) ?? "",
-                            style: Textstyles.getTitle(),
+                            style: TextStyles.getTitle(),
                           ),
                   ),
                   IconButton(

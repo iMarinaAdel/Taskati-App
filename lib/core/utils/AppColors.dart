@@ -12,4 +12,6 @@ class AppColors {
   static const Color redColor = Colors.red;
   static const Color yellowColor = Colors.amber;
   static const Color pinkwColor = Colors.pinkAccent;
+  static const Color greenColor = Colors.green;
+  static const Color darkColor = Color(0xff090920);
 }

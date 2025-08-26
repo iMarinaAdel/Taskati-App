@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taskati/constants/task_colors.dart';
+import 'package:taskati/core/constants/task_colors.dart';
 
 class SelectColorsWidget extends StatelessWidget {
   final int selectedIndex;

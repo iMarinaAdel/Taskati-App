@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gap/flutter_gap.dart';
 import 'package:lottie/lottie.dart';
-import 'package:taskati/constants/app_assets.dart';
+import 'package:taskati/core/constants/app_assets.dart';
 import 'package:taskati/core/extentions/app_navigation.dart';
 import 'package:taskati/core/services/local_helper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     var isUpload = LocalHelper.getData(LocalHelper.kIsUpload) ?? false;
     Future.delayed(const Duration(seconds: 4), () {
-      AppNavigation.pushRecplementTo(
+      AppNavigation.pushReplacementTo(
         context,
         isUpload ? MainScreen() : UplaodScreen(),
       );
@@ -37,11 +37,11 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Lottie.asset(AppAssets.slpashLogoL),
-            Text("Taskati", style: Textstyles.getHeadLine(fontSize: 35)),
+            Text("Taskati", style: TextStyles.getHeadLine(fontSize: 35)),
             Gap(15),
             Text(
               "It's Time To Get Organiezed",
-              style: Textstyles.getBody(
+              style: TextStyles.getBody(
                 color: AppColors.darkGrayColor,
                 fontSize: 20,
               ),

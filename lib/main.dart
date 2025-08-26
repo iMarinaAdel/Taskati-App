@@ -16,7 +16,11 @@ class Taskati extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeAnimationCurve: Curves.fastOutSlowIn,
+      themeAnimationDuration: Duration(seconds: 2),
       theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.dartTheme,
+      themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );

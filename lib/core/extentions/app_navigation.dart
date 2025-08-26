@@ -5,7 +5,7 @@ class AppNavigation {
     Navigator.push(context, MaterialPageRoute(builder: (context) => newPage));
   }
 
-  static void pushRecplementTo(BuildContext context, Widget newPage) {
+  static void pushReplacementTo(BuildContext context, Widget newPage) {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(builder: (context) => newPage),

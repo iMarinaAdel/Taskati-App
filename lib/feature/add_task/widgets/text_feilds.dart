@@ -21,16 +21,22 @@ class TextFeilds extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Title", style: Textstyles.getTitle(), textAlign: TextAlign.start),
+        Text("Title", style: TextStyles.getTitle(), textAlign: TextAlign.start),
         Gap(6),
         TextFormField(
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return "Please Enter Task Title";
+            }
+            return null;
+          },
           decoration: InputDecoration(hintText: "Enter Title"),
           controller: titleController,
         ),
         Gap(15),
         Text(
           "Describtion",
-          style: Textstyles.getTitle(),
+          style: TextStyles.getTitle(),
           textAlign: TextAlign.start,
         ),
         Gap(6),
@@ -40,7 +46,7 @@ class TextFeilds extends StatelessWidget {
           controller: descriptionController,
         ),
         Gap(15),
-        Text("Date", style: Textstyles.getTitle(), textAlign: TextAlign.start),
+        Text("Date", style: TextStyles.getTitle(), textAlign: TextAlign.start),
         Gap(6),
         TextFormField(
           onTap: () async {

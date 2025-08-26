@@ -41,8 +41,10 @@ dependencies:
   hive_flutter: ^1.1.0
   intl: ^0.20.2
   date_picker_timeline: ^1.2.7
+  hive_generator: ^2.0.1
 
 dev_dependencies:
+  analyzer: ^6.4.1
   flutter_test:
     sdk: flutter
 
@@ -52,6 +54,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  build_runner: ^2.4.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

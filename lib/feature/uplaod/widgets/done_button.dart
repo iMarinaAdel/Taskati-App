@@ -23,16 +23,16 @@ class DoneButton extends StatelessWidget {
           LocalHelper.cacheData(LocalHelper.kIsUpload, true);
           LocalHelper.cacheData(LocalHelper.kName, nameController.text);
           LocalHelper.cacheData(LocalHelper.kImage, path);
-          AppNavigation.pushRecplementTo(context, MainScreen());
+          AppNavigation.pushReplacementTo(context, MainScreen());
         } else if (path == null && nameController.text.isNotEmpty) {
           LocalHelper.cacheData(LocalHelper.kIsUpload, true);
           LocalHelper.cacheData(LocalHelper.kName, nameController.text);
-          AppNavigation.pushRecplementTo(context, MainScreen());
+          AppNavigation.pushReplacementTo(context, MainScreen());
         } else {
           showErrorMessage(context, "Please Enter Your Name");
         }
       },
-      child: Text("Done", style: Textstyles.getTitle()),
+      child: Text("Done", style: TextStyles.getTitle()),
     );
   }
 }

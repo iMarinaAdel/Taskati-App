@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:taskati/constants/app_assets.dart';
+import 'package:taskati/core/constants/app_assets.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 
 class ProfileImagePicker extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 
-class Textstyles {
+class TextStyles {
   static TextStyle getHeadLine({
     Color? color,
     FontWeight? fontWeight,
@@ -34,7 +34,6 @@ class Textstyles {
     return TextStyle(
       fontSize: fontSize ?? 16,
       fontWeight: fontWeight ?? FontWeight.normal,
-      color: color ?? AppColors.blackColor,
     );
   }
 
@@ -46,7 +45,6 @@ class Textstyles {
     return TextStyle(
       fontSize: fontSize,
       fontWeight: fontWeight ?? FontWeight.normal,
-      color: color ?? AppColors.blackColor,
     );
   }
 }

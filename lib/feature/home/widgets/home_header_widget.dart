@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:taskati/constants/app_assets.dart';
+import 'package:taskati/core/constants/app_assets.dart';
 import 'package:taskati/core/services/local_helper.dart';
 import 'package:taskati/core/utils/AppColors.dart';
 import 'package:taskati/core/utils/text_style.dart';
@@ -19,12 +19,12 @@ class HomeHeaderWidget extends StatelessWidget {
             children: [
               Text(
                 "Hello, ${(LocalHelper.getData(LocalHelper.kName) as String).split(" ")[0]}",
-                style: Textstyles.getTitle(
+                style: TextStyles.getTitle(
                   fontSize: 22,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Text("Have A Nice Day", style: Textstyles.getBody()),
+              Text("Have A Nice Day", style: TextStyles.getBody()),
             ],
           ),
         ),

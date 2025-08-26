@@ -28,7 +28,7 @@ class TimeFielsdRow extends StatelessWidget {
               Text(
                 "Start Date",
                 textAlign: TextAlign.start,
-                style: Textstyles.getTitle(),
+                style: TextStyles.getTitle(),
               ),
               Gap(6),
               TextFormField(
@@ -84,7 +84,7 @@ class TimeFielsdRow extends StatelessWidget {
               Text(
                 "End Date",
                 textAlign: TextAlign.start,
-                style: Textstyles.getTitle(),
+                style: TextStyles.getTitle(),
               ),
               Gap(6),
               TextFormField(

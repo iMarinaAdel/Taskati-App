@@ -28,7 +28,7 @@ class MainButtonApp extends StatelessWidget {
         onPressed: onPreased,
         child: Text(
           text,
-          style: Textstyles.getBody(
+          style: TextStyles.getBody(
             color: AppColors.whiteColor,
             fontSize: textSize ?? 16,
           ),
