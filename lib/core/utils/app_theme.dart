@@ -14,6 +14,13 @@ class AppTheme {
       headerForegroundColor: Colors.white,
       todayForegroundColor: WidgetStatePropertyAll(AppColors.primaryColor),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.primaryColor,
+        textStyle: TextStyles.getBody(color: AppColors.whiteColor),
+      ),
+    ),
     timePickerTheme: TimePickerThemeData(
       dialHandColor: AppColors.primaryColor,
       entryModeIconColor: AppColors.primaryColor,
@@ -52,6 +59,14 @@ class AppTheme {
       brightness: Brightness.dark,
       onSurface: AppColors.whiteColor,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        foregroundColor: AppColors.whiteColor,
+        backgroundColor: AppColors.primaryColor,
+        textStyle: TextStyles.getBody(color: AppColors.whiteColor),
+      ),
+    ),
+
     datePickerTheme: DatePickerThemeData(
       headerBackgroundColor: AppColors.primaryColor,
       headerForegroundColor: Colors.white,
