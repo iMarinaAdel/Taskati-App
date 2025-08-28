@@ -32,6 +32,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         onDateChange: (date) {
           setState(() {
             selectedDate = DateFormat("yyyy-MM-dd").format(date);
+            widget.onDateSelected(selectedDate);
           });
         },
       ),
