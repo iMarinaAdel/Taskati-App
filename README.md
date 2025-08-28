@@ -62,10 +62,10 @@ With a clean UI, profile customization, and interactive task controls, Taskati m
 - **Flutter** – Cross-platform framework.  
 - **Dart** – Programming language.  
 
----
 
 ## 📂 Project Structure
 
+```
 lib/
 ├── core/
 │ ├── utils/
@@ -76,5 +76,7 @@ lib/
 │ ├── home/
 │ ├── add_task/
 │ ├── profile/
+```
+
 
 
